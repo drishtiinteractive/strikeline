@@ -1,0 +1,15 @@
+{
+  "name": "stickman-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently --names \"server,client\" --prefix-colors \"cyan,magenta\" \"pnpm --filter @stickman/server dev\" \"pnpm --filter @stickman/client dev\"",
+    "build": "pnpm --filter @stickman/shared build && pnpm --filter @stickman/server build && pnpm --filter @stickman/client build",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r exec rm -rf dist node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2"
+  }
+}
